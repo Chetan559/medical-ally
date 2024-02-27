@@ -1,8 +1,8 @@
 {
-  "name": "health-plus",
+  "name": "health-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://alkaison.github.io/Health-Plus/",
+  "homepage": "./",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-brands-svg-icons": "^6.5.1",
