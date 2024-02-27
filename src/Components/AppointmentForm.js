@@ -69,7 +69,7 @@ function AppointmentForm() {
     <div className="appointment-form-section">
       <h1 className="legal-siteTitle">
         <Link to="/">
-          Health <span className="legal-siteSign">+</span>
+          Health-<span className="legal-siteSign">App</span>
         </Link>
       </h1>
 
@@ -262,7 +262,7 @@ function AppointmentForm() {
       </div>
 
       <div className="legal-footer">
-        <p>© 2013-2023 Health+. All rights reserved.</p>
+        <p>© 2024 Health-App. All rights reserved.</p>
       </div>
 
       <ToastContainer autoClose={5000} limit={1} closeButton={false} />
