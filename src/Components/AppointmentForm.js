@@ -8,6 +8,7 @@ function AppointmentForm() {
   const [bookAppointment, setBookAppointment] = useState({
     patientName: "",
     patientNumber: "",
+    patientAge: "",
     patientGender: "default",
     medicalHistory: "",
     currentSymptoms: "",
@@ -32,6 +33,7 @@ function AppointmentForm() {
 
     // Send data to genAI.js
     const responseData = await sendToServer({
+      patientAge: bookAppointment.patientAge,
       patientGender: bookAppointment.patientGender,
       medicalHistory: bookAppointment.medicalHistory,
       currentSymptoms: bookAppointment.currentSymptoms,
@@ -53,6 +55,7 @@ function AppointmentForm() {
     setBookAppointment({
       patientName: "",
       patientNumber: "",
+      patientAge: "",
       patientGender: "default",
       medicalHistory: "",
       currentSymptoms: "",
@@ -97,6 +100,16 @@ function AppointmentForm() {
             <input
               name="patientNumber"
               value={bookAppointment.patientNumber}
+              onChange={handleChange}
+              required
+            />
+          </label>
+
+          <label>
+            Patient Age:
+            <input
+              name="patientAge"
+              value={bookAppointment.patientAge}
               onChange={handleChange}
               required
             />
@@ -182,8 +195,7 @@ function AppointmentForm() {
             className="success-message"
             style={{ display: isSubmitted ? "block" : "none" }}
           >
-            Appointment details have been sent to the patient's phone number via
-            SMS.
+            Data submitted sucessfully.
           </p>
         </form>
       </div>

@@ -2,9 +2,6 @@ import React from "react";
 import InformationCard from "./InformationCard";
 import {
   faHeartPulse,
-  faTruckMedical,
-  faTooth,
-  faHospital,
   faHospitalUser,
   faComments,
   faRobot,

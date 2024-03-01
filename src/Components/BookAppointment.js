@@ -3,7 +3,6 @@ import Doctor from "../Assets/doctor-book-appointment.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleCheck,
-  faCalendarCheck,
   faMagnifyingGlassChart,
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
