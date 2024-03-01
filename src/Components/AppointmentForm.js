@@ -1,74 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
 import "../Styles/AppointmentForm.css";
-import sendToServer from "../Scripts/genAI";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 
 function AppointmentForm() {
-  const [bookAppointment, setBookAppointment] = useState({
-    patientName: "",
-    patientNumber: "",
-    patientAge: "",
-    patientGender: "default",
-    medicalHistory: "",
-    currentSymptoms: "",
-    medications: "",
-    allergies: "",
-    vitalSigns: "",
-    labResults: "",
+  useEffect(() => {
+    // window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
+  const [patientName, setPatientName] = useState("");
+  const [patientNumber, setPatientNumber] = useState("");
+  const [patientAge, setPatientAge] = useState("");
+  const [patientGender, setPatientGender] = useState("default");
+  const [medicalHistory, setMedicalHistory] = useState("");
+  const [currentSymptoms, setCurrentSymptoms] = useState("");
+  const [medications, setMedications] = useState("");
+  const [allergies, setAllergies] = useState("");
+  const [vitalSigns, setVitalSigns] = useState("");
+  const [labResults, setLabResults] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setBookAppointment((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
+  const [response, setResponse] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Send data to genAI.js
-    const responseData = await sendToServer({
-      patientAge: bookAppointment.patientAge,
-      patientGender: bookAppointment.patientGender,
-      medicalHistory: bookAppointment.medicalHistory,
-      currentSymptoms: bookAppointment.currentSymptoms,
-      medications: bookAppointment.medications,
-      allergies: bookAppointment.allergies,
-      vitalSigns: bookAppointment.vitalSigns,
-      labResults: bookAppointment.labResults,
-    });
+    const character = `You are a doctor and have the knowledge of all fields. Here you are getting the data from a patient in which age ${
+      patientAge || "none"
+    }, gender ${patientGender}, allergies ${
+      allergies || "none"
+    }, medical history ${medicalHistory || "none"}, vital signs ${
+      vitalSigns || "none"
+    }, or may be the lab results ${labResults || "none"} are mentioned.`;
 
-    // Handle response from server
-    if (responseData) {
-      // Append response data to form as a popup
-      alert(responseData); // You can customize this as needed
-    } else {
-      alert("Failed to process data. Please try again later.");
+    const task = `As a professional doctor, give suggestions to the patient based on the above symptoms which include the possible acute disease in which these symptoms are shown, mention the precautions and suggest the lab tests to check the possible disease for confirmation.`;
+
+    const format = `Provide the suggestions in step by step and in ordered numeric list with highlighting the main topic and in a readable format.`;
+
+    const tone = `Use a simple language that a patient can easily understand.`;
+
+    const prompt = `${character}\n\n${task}\n\n${format}\n\n${tone}`;
+
+    try {
+      const res = await axios.post("http://localhost:5000/chat", { prompt });
+      console.log(res);
+      setResponse(res.data); // Store response from server
+      toast.success("Appointment Scheduled!", {
+        position: toast.POSITION.TOP_CENTER,
+        onOpen: () => setIsSubmitted(true),
+        onClose: () => setIsSubmitted(false),
+      });
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error
     }
 
-    // Reset form fields after successful submission
-    setBookAppointment({
-      patientName: "",
-      patientNumber: "",
-      patientAge: "",
-      patientGender: "default",
-      medicalHistory: "",
-      currentSymptoms: "",
-      medications: "",
-      allergies: "",
-      vitalSigns: "",
-      labResults: "",
-    });
-
-    setIsSubmitted(true);
-
-    // Toast notification for success
-    toast.success("Details submitted sucessfully");
+    // Clear form fields
+    setPatientName("");
+    setPatientNumber("");
+    setPatientAge("");
+    setPatientGender("default");
+    setMedicalHistory("");
+    setCurrentSymptoms("");
+    setMedications("");
+    setAllergies("");
+    setVitalSigns("");
+    setLabResults("");
   };
 
   return (
@@ -86,41 +83,44 @@ function AppointmentForm() {
 
         <form className="form-content" onSubmit={handleSubmit}>
           <label>
+            <span className="redAsterisk">*</span>
             Patient Full Name:
-            <textarea
-              name="patientName"
-              value={bookAppointment.patientName}
-              onChange={handleChange}
+            <input
+              type="text"
+              value={patientName}
+              onChange={(e) => setPatientName(e.target.value)}
               required
             />
           </label>
 
           <label>
+            <span className="redAsterisk">*</span>
             Patient Phone Number:
             <input
-              name="patientNumber"
-              value={bookAppointment.patientNumber}
-              onChange={handleChange}
+              type="text"
+              value={patientNumber}
+              onChange={(e) => setPatientNumber(e.target.value)}
               required
             />
           </label>
 
           <label>
+            <span className="redAsterisk">*</span>
             Patient Age:
             <input
-              name="patientAge"
-              value={bookAppointment.patientAge}
-              onChange={handleChange}
+              type="text"
+              value={patientAge}
+              onChange={(e) => setPatientAge(e.target.value)}
               required
             />
           </label>
 
           <label>
+            <span className="redAsterisk">*</span>
             Patient Gender:
             <select
-              name="patientGender"
-              value={bookAppointment.patientGender}
-              onChange={handleChange}
+              value={patientGender}
+              onChange={(e) => setPatientGender(e.target.value)}
               required
             >
               <option value="default">Select</option>
@@ -134,77 +134,74 @@ function AppointmentForm() {
           <label>
             Medical History:
             <textarea
-              name="medicalHistory"
-              value={bookAppointment.medicalHistory}
-              onChange={handleChange}
+              value={medicalHistory}
+              onChange={(e) => setMedicalHistory(e.target.value)}
             />
           </label>
 
           <label>
             Current Symptoms:
             <textarea
-              name="currentSymptoms"
-              value={bookAppointment.currentSymptoms}
-              onChange={handleChange}
-              required
+              value={currentSymptoms}
+              onChange={(e) => setCurrentSymptoms(e.target.value)}
             />
           </label>
 
           <label>
             Medications:
             <textarea
-              name="medications"
-              value={bookAppointment.medications}
-              onChange={handleChange}
+              value={medications}
+              onChange={(e) => setMedications(e.target.value)}
             />
           </label>
 
           <label>
             Allergies:
             <textarea
-              name="allergies"
-              value={bookAppointment.allergies}
-              onChange={handleChange}
+              value={allergies}
+              onChange={(e) => setAllergies(e.target.value)}
             />
           </label>
 
           <label>
             Vital Signs:
             <textarea
-              name="vitalSigns"
-              value={bookAppointment.vitalSigns}
-              onChange={handleChange}
+              value={vitalSigns}
+              onChange={(e) => setVitalSigns(e.target.value)}
             />
           </label>
 
           <label>
             Laboratory Test Results:
             <textarea
-              name="labResults"
-              value={bookAppointment.labResults}
-              onChange={handleChange}
+              value={labResults}
+              onChange={(e) => setLabResults(e.target.value)}
             />
           </label>
 
           <button type="submit" className="text-appointment-btn">
-            Confirm Appointment
+            Submit and Analyse
           </button>
 
-          {/* Display success message if isSubmitted is true */}
           <p
             className="success-message"
             style={{ display: isSubmitted ? "block" : "none" }}
           >
             Data submitted sucessfully.
           </p>
+
+          {/* Display response from server */}
+          {response && (
+            <div className="response alert alert-primary" role="alert">
+              <p>{response}</p>
+            </div>
+          )}
         </form>
       </div>
 
       <div className="legal-footer">
         <p>© 2024 Health-App. All rights reserved.</p>
       </div>
-
-      <ToastContainer autoClose={5000} limit={1} closeButton={false} />
     </div>
   );
 }

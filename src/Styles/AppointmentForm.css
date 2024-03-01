@@ -31,11 +31,11 @@
   font-size: 24px;
   letter-spacing: 0.7px;
 }
-.form-content label::before {
-  content: "*";
+
+.redAsterisk {
   color: red;
-  padding: 0 4px 0 0;
 }
+
 .form-content label :is(input, select) {
   width: 100%;
   margin: 8px 0;
@@ -105,6 +105,18 @@
   font-size: 18px;
   letter-spacing: 0.7px;
   line-height: 1.5; /* Adjust line height for better readability */
+}
+
+.response {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  background-color: #c9def4;
+  border-style: double;
+  border-radius: 6px;
+  font-size: 18pt;
 }
 
 /* Responsive */
