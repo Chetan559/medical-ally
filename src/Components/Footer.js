@@ -9,7 +9,7 @@ function Footer() {
         <div className="ft-info">
           <div className="ft-info-p1">
             <p className="ft-title">
-              Health-App <span className="ft-sign">+</span>
+              Health-<span className="ft-sign">App</span>
             </p>
             <p className="ft-description">
               Stay connected with us for the latest updates and health tips.

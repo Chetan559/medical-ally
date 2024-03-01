@@ -65,7 +65,7 @@ function Navbar() {
       </ul>
       <a href="https://chetan559.github.io/">
         <button className="navbar-btn">
-          <FontAwesomeIcon icon={faRightToBracket} /> Login As Doctor
+          <FontAwesomeIcon icon={faRightToBracket} />
         </button>
       </a>
       {/* Mobile */}

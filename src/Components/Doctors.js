@@ -16,7 +16,7 @@ function Doctors() {
 
         <p className="dt-description">
           Meet our exceptional team of specialist doctors, dedicated to
-          providing top-notch healthcare services at Health Plus. Trust in their
+          providing top-notch healthcare services at Health-App. Trust in their
           knowledge and experience to lead you towards a healthier and happier
           life.
         </p>
@@ -34,14 +34,14 @@ function Doctors() {
           img={profile2}
           name="Dr. Mahendra"
           title="Neurosurgeon"
-          stars="4.8"
+          stars="4.1"
           reviews="700"
         />
         <DoctorCard
           img={profile3}
           name="Dr. Sneha"
           title="Physician"
-          stars="4.7"
+          stars="4.9"
           reviews="450"
         />
         <DoctorCard

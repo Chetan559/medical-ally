@@ -1,68 +1,71 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "../Styles/AppointmentForm.css";
 import { ToastContainer, toast } from "react-toastify";
+import "../Styles/AppointmentForm.css";
+import sendToServer from "../Scripts/genAI";
 
 function AppointmentForm() {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const [bookAppointment, setBookAppointment] = useState({
+    patientName: "",
+    patientNumber: "",
+    patientGender: "default",
+    medicalHistory: "",
+    currentSymptoms: "",
+    medications: "",
+    allergies: "",
+    vitalSigns: "",
+    labResults: "",
   });
 
-  const [patientName, setPatientName] = useState("");
-  const [patientNumber, setPatientNumber] = useState("");
-  const [patientGender, setPatientGender] = useState("default");
-  const [medicalHistory, setMedicalHistory] = useState("");
-  const [currentSymptoms, setCurrentSymptoms] = useState("");
-  const [medications, setMedications] = useState("");
-  const [allergies, setAllergies] = useState("");
-  const [vitalSigns, setVitalSigns] = useState("");
-  const [labResults, setLabResults] = useState("");
-  const [previousDiagnoses, setPreviousDiagnoses] = useState("");
-  const [familyHistory, setFamilyHistory] = useState("");
-  const [demographicInfo, setDemographicInfo] = useState("");
-  const [lifestyleFactors, setLifestyleFactors] = useState("");
-  const [environmentalFactors, setEnvironmentalFactors] = useState("");
-  const [socialDeterminants, setSocialDeterminants] = useState("");
-  const [doctorNotes, setDoctorNotes] = useState("");
-  const [treatmentGuidelines, setTreatmentGuidelines] = useState("");
-  const [medicalResearch, setMedicalResearch] = useState("");
-  const [dataPrivacy, setDataPrivacy] = useState("");
-
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formErrors, setFormErrors] = useState({});
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setBookAppointment((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Your form validation logic here...
-
-    // Reset form fields and errors after successful submission
-    setPatientName("");
-    setPatientNumber("");
-    setPatientGender("default");
-    setMedicalHistory("");
-    setCurrentSymptoms("");
-    setMedications("");
-    setAllergies("");
-    setVitalSigns("");
-    setLabResults("");
-    setPreviousDiagnoses("");
-    setFamilyHistory("");
-    setDemographicInfo("");
-    setLifestyleFactors("");
-    setEnvironmentalFactors("");
-    setSocialDeterminants("");
-    setDoctorNotes("");
-    setTreatmentGuidelines("");
-    setMedicalResearch("");
-    setDataPrivacy("");
-    setFormErrors({});
-
-    toast.success("Appointment Scheduled!", {
-      position: toast.POSITION.TOP_CENTER,
-      onOpen: () => setIsSubmitted(true),
-      onClose: () => setIsSubmitted(false),
+    // Send data to genAI.js
+    const responseData = await sendToServer({
+      patientGender: bookAppointment.patientGender,
+      medicalHistory: bookAppointment.medicalHistory,
+      currentSymptoms: bookAppointment.currentSymptoms,
+      medications: bookAppointment.medications,
+      allergies: bookAppointment.allergies,
+      vitalSigns: bookAppointment.vitalSigns,
+      labResults: bookAppointment.labResults,
     });
+
+    // Handle response from server
+    if (responseData) {
+      // Append response data to form as a popup
+      alert(responseData); // You can customize this as needed
+    } else {
+      alert("Failed to process data. Please try again later.");
+    }
+
+    // Reset form fields after successful submission
+    setBookAppointment({
+      patientName: "",
+      patientNumber: "",
+      patientGender: "default",
+      medicalHistory: "",
+      currentSymptoms: "",
+      medications: "",
+      allergies: "",
+      vitalSigns: "",
+      labResults: "",
+    });
+
+    setIsSubmitted(true);
+
+    // Toast notification for success
+    toast.success("Details submitted sucessfully");
   };
 
   return (
@@ -81,10 +84,10 @@ function AppointmentForm() {
         <form className="form-content" onSubmit={handleSubmit}>
           <label>
             Patient Full Name:
-            <input
-              type="text"
-              value={patientName}
-              onChange={(e) => setPatientName(e.target.value)}
+            <textarea
+              name="patientName"
+              value={bookAppointment.patientName}
+              onChange={handleChange}
               required
             />
           </label>
@@ -92,9 +95,9 @@ function AppointmentForm() {
           <label>
             Patient Phone Number:
             <input
-              type="text"
-              value={patientNumber}
-              onChange={(e) => setPatientNumber(e.target.value)}
+              name="patientNumber"
+              value={bookAppointment.patientNumber}
+              onChange={handleChange}
               required
             />
           </label>
@@ -102,8 +105,9 @@ function AppointmentForm() {
           <label>
             Patient Gender:
             <select
-              value={patientGender}
-              onChange={(e) => setPatientGender(e.target.value)}
+              name="patientGender"
+              value={bookAppointment.patientGender}
+              onChange={handleChange}
               required
             >
               <option value="default">Select</option>
@@ -117,133 +121,55 @@ function AppointmentForm() {
           <label>
             Medical History:
             <textarea
-              value={medicalHistory}
-              onChange={(e) => setMedicalHistory(e.target.value)}
+              name="medicalHistory"
+              value={bookAppointment.medicalHistory}
+              onChange={handleChange}
             />
           </label>
 
           <label>
             Current Symptoms:
             <textarea
-              value={currentSymptoms}
-              onChange={(e) => setCurrentSymptoms(e.target.value)}
+              name="currentSymptoms"
+              value={bookAppointment.currentSymptoms}
+              onChange={handleChange}
+              required
             />
           </label>
 
           <label>
             Medications:
             <textarea
-              value={medications}
-              onChange={(e) => setMedications(e.target.value)}
+              name="medications"
+              value={bookAppointment.medications}
+              onChange={handleChange}
             />
           </label>
 
           <label>
             Allergies:
             <textarea
-              value={allergies}
-              onChange={(e) => setAllergies(e.target.value)}
+              name="allergies"
+              value={bookAppointment.allergies}
+              onChange={handleChange}
             />
           </label>
 
           <label>
             Vital Signs:
             <textarea
-              value={vitalSigns}
-              onChange={(e) => setVitalSigns(e.target.value)}
+              name="vitalSigns"
+              value={bookAppointment.vitalSigns}
+              onChange={handleChange}
             />
           </label>
 
           <label>
             Laboratory Test Results:
             <textarea
-              value={labResults}
-              onChange={(e) => setLabResults(e.target.value)}
-            />
-          </label>
-
-          <label>
-            Previous Diagnoses and Treatments:
-            <textarea
-              value={previousDiagnoses}
-              onChange={(e) => setPreviousDiagnoses(e.target.value)}
-            />
-          </label>
-
-          <label>
-            Family Medical History:
-            <textarea
-              value={familyHistory}
-              onChange={(e) => setFamilyHistory(e.target.value)}
-            />
-          </label>
-
-          {/* Contextual Information */}
-          <label>
-            Demographic Information:
-            <textarea
-              value={demographicInfo}
-              onChange={(e) => setDemographicInfo(e.target.value)}
-            />
-          </label>
-
-          <label>
-            Lifestyle Factors:
-            <textarea
-              value={lifestyleFactors}
-              onChange={(e) => setLifestyleFactors(e.target.value)}
-            />
-          </label>
-
-          <label>
-            Environmental Factors:
-            <textarea
-              value={environmentalFactors}
-              onChange={(e) => setEnvironmentalFactors(e.target.value)}
-            />
-          </label>
-
-          <label>
-            Social Determinants of Health:
-            <textarea
-              value={socialDeterminants}
-              onChange={(e) => setSocialDeterminants(e.target.value)}
-            />
-          </label>
-
-          {/* Doctor Notes and Observations */}
-          <label>
-            Doctor's Notes:
-            <textarea
-              value={doctorNotes}
-              onChange={(e) => setDoctorNotes(e.target.value)}
-            />
-          </label>
-
-          {/* Treatment Guidelines and Protocols */}
-          <label>
-            Treatment Guidelines:
-            <textarea
-              value={treatmentGuidelines}
-              onChange={(e) => setTreatmentGuidelines(e.target.value)}
-            />
-          </label>
-
-          {/* Medical Literature and Research */}
-          <label>
-            Medical Research:
-            <textarea
-              value={medicalResearch}
-              onChange={(e) => setMedicalResearch(e.target.value)}
-            />
-          </label>
-
-          {/* Data Privacy and Security */}
-          <label>
-            Data Privacy:
-            <textarea
-              value={dataPrivacy}
-              onChange={(e) => setDataPrivacy(e.target.value)}
+              name="labResults"
+              value={bookAppointment.labResults}
+              onChange={handleChange}
             />
           </label>
 
@@ -251,6 +177,7 @@ function AppointmentForm() {
             Confirm Appointment
           </button>
 
+          {/* Display success message if isSubmitted is true */}
           <p
             className="success-message"
             style={{ display: isSubmitted ? "block" : "none" }}
