@@ -124,7 +124,9 @@
 }
 
 .response p {
+  border-radius: 12px;
   padding: 12px;
+  white-space: pre-wrap;
 }
 /* Responsive */
 @media screen and (max-width: 600px) {
