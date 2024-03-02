@@ -1,20 +1,27 @@
+// 
+
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faRightToBracket,
   faBars,
   faXmark,
+  faMagnifyingGlassChart,
 } from "@fortawesome/free-solid-svg-icons";
 import "../Styles/Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate hook
 import { toast } from "react-toastify";
 
 function Navbar() {
+  const navigate = useNavigate(); // Initialize navigate function
   const [nav, setNav] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const openNav = () => {
     setNav(!nav);
+  };
+
+  const handleRegistrationClick = () => {
+    navigate("/registration"); // Navigate to the registration page
   };
 
   const handleChatBtnClick = () => {
@@ -63,11 +70,16 @@ function Navbar() {
           </a>
         </li>
       </ul>
-      <a href="https://chetan559.github.io/">
-        <button className="navbar-btn">
-          <FontAwesomeIcon icon={faRightToBracket} />
-        </button>
-      </a>
+
+      {/* Doctor registration button */}
+      <button
+        className="text-appointment-btn"
+        type="button"
+        onClick={handleRegistrationClick}
+      >
+        <FontAwesomeIcon icon={faMagnifyingGlassChart} /> Doctor
+      </button>
+
       {/* Mobile */}
       <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
         <div onClick={openNav} className="mobile-navbar-close">
@@ -75,36 +87,7 @@ function Navbar() {
         </div>
 
         <ul className="mobile-navbar-links">
-          <li>
-            <Link onClick={openNav} to="/">
-              Home
-            </Link>
-          </li>
-          <li>
-            <a onClick={openNav} href="#services">
-              Services
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#about">
-              About
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#reviews">
-              Reviews
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#doctors">
-              Doctors
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#contact">
-              Contact
-            </a>
-          </li>
+          {/* Mobile navbar items */}
         </ul>
       </div>
 
