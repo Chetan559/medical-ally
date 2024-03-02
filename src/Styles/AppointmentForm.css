@@ -24,6 +24,10 @@
   bottom: -12px;
 }
 /* Form */
+
+.form-content {
+  position: relative;
+}
 .form-content label {
   margin: 0 0 16px 0;
   display: block;
@@ -108,10 +112,10 @@
 }
 
 .response {
+  position: relative;
   width: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  left: 15%;
+  flex-wrap: wrap;
   margin-top: 12px;
   background-color: #c9def4;
   border-style: double;
@@ -119,6 +123,9 @@
   font-size: 18pt;
 }
 
+.response p {
+  padding: 12px;
+}
 /* Responsive */
 @media screen and (max-width: 600px) {
   .form-content label textarea {

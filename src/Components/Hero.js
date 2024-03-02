@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Doctor from "../Assets/doctor-picture.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCalendarCheck,
   faAngleUp,
   faMagnifyingGlassChart,
 } from "@fortawesome/free-solid-svg-icons";
@@ -45,8 +44,8 @@ function Hero() {
             The Best Reliable Health Service In Your Hands
           </h2>
           <p className="text-descritpion">
-            Our skilled doctor have temendous Experience with wide range of
-            diseases to serve the needs of our Patients.
+            Revolutionizing Healthcare by Intelligent Patient Data Management
+            System with GenAI.
           </p>
           <button
             className="text-appointment-btn"

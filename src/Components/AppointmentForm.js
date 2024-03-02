@@ -5,10 +5,6 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
 function AppointmentForm() {
-  useEffect(() => {
-    // window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-
   const [patientName, setPatientName] = useState("");
   const [patientNumber, setPatientNumber] = useState("");
   const [patientAge, setPatientAge] = useState("");
@@ -33,9 +29,9 @@ function AppointmentForm() {
       vitalSigns || "none"
     }, or may be the lab results ${labResults || "none"} are mentioned.`;
 
-    const task = `As a professional doctor, give suggestions to the patient based on the above symptoms which include the possible acute disease in which these symptoms are shown, mention the precautions and suggest the lab tests to check the possible disease for confirmation.`;
+    const task = `As a professional doctor, give suggestions to the patient based on the above symptoms which include the possible acute disease in which these symptoms are shown, mention the precautions and suggest the lab tests to check the possible disease for confirmation.and suggest a specialist to be consulted`;
 
-    const format = `Provide the suggestions in step by step and in ordered numeric list with highlighting the main topic and in a readable format.`;
+    const format = `Provide the suggestions in step by step and in ordered numeric list with highlighting the main topic and in a readable format where each point begins in new line.`;
 
     const tone = `Use a simple language that a patient can easily understand.`;
 
@@ -44,7 +40,7 @@ function AppointmentForm() {
     try {
       const res = await axios.post("http://localhost:5000/chat", { prompt });
       console.log(res);
-      setResponse(res.data); // Store response from server
+      setResponse(res.data);
       toast.success("Appointment Scheduled!", {
         position: toast.POSITION.TOP_CENTER,
         onOpen: () => setIsSubmitted(true),
@@ -52,10 +48,8 @@ function AppointmentForm() {
       });
     } catch (error) {
       console.error("Error:", error);
-      // Handle error
     }
 
-    // Clear form fields
     setPatientName("");
     setPatientNumber("");
     setPatientAge("");
@@ -78,7 +72,7 @@ function AppointmentForm() {
 
       <div className="form-container">
         <h2 className="form-title">
-          <span>Book Appointment Online</span>
+          <span>Self Diagnose Here</span>
         </h2>
 
         <form className="form-content" onSubmit={handleSubmit}>
@@ -132,18 +126,18 @@ function AppointmentForm() {
 
           {/* Patient Health Data */}
           <label>
-            Medical History:
-            <textarea
-              value={medicalHistory}
-              onChange={(e) => setMedicalHistory(e.target.value)}
-            />
-          </label>
-
-          <label>
             Current Symptoms:
             <textarea
               value={currentSymptoms}
               onChange={(e) => setCurrentSymptoms(e.target.value)}
+            />
+          </label>
+
+          <label>
+            Medical History:
+            <textarea
+              value={medicalHistory}
+              onChange={(e) => setMedicalHistory(e.target.value)}
             />
           </label>
 
