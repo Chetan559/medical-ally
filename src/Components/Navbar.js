@@ -1,4 +1,4 @@
-// 
+//
 
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,6 +6,7 @@ import {
   faBars,
   faXmark,
   faMagnifyingGlassChart,
+  faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import "../Styles/Navbar.css";
 import { Link, useNavigate } from "react-router-dom"; // Import useNavigate hook
@@ -77,7 +78,7 @@ function Navbar() {
         type="button"
         onClick={handleRegistrationClick}
       >
-        <FontAwesomeIcon icon={faMagnifyingGlassChart} /> Doctor
+        <FontAwesomeIcon icon={faArrowRightToBracket} /> Doctor
       </button>
 
       {/* Mobile */}
@@ -86,9 +87,7 @@ function Navbar() {
           <FontAwesomeIcon icon={faXmark} className="hamb-icon" />
         </div>
 
-        <ul className="mobile-navbar-links">
-          {/* Mobile navbar items */}
-        </ul>
+        <ul className="mobile-navbar-links">{/* Mobile navbar items */}</ul>
       </div>
 
       {/* Hamburger Icon */}
