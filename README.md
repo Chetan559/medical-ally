@@ -1,109 +1,157 @@
-# Health-App
+# Medical-Ally
 
-## Introduction
+Medical-Ally is a comprehensive medical platform designed to assist users with illness diagnosis, doctor recommendations, online doctor interactions, medicine and pathology test ordering, and efficient data management. This platform leverages advanced AI/ML models to provide accurate and user-friendly solutions for medical needs.
 
-Welcome to the Intelligent Patient Data Management System, a revolutionary project designed to enhance healthcare efficiency and effectiveness through advanced technology. This web and mobile application empowers patients to securely input health data while providing doctors with seamless access to verified information. Utilizing GPT (Generative Pre-trained Transformer) technology, our system offers automated analysis, diagnoses, and treatment suggestions, elevating the standard of patient care. Explore the secure communication channels, secret key integration for GPT-powered analysis, and a robust technology stack that ensures a scalable and user-friendly experience.
+## Key Features
 
-## Screenshots
+### 1. User-Centric Features:
 
-### Home Page
+- **Illness Diagnosis:** Diagnose illnesses based on user-provided symptoms, medical history, and other inputs.
+- **Doctor Recommendations:** Get personalized doctor recommendations based on diagnosis.
+- **Online Interaction:** Chat or video call with doctors for consultations.
+- **Medicine and Test Ordering:** Order prescribed medicines and pathology tests online.
+- **Chatbot Assistance:** A chatbot that explains pathological reports and medicines in native languages.
+- **Community Forum:** Connect with other users in forums to share experiences and seek advice.
 
-![App Screenshot](https://github.com/SutharMahendra/FCC-HTML-CSS/blob/main/imges/1.jpg?raw=true)
+### 2. Doctor-Centric Features:
 
-### Self-Diagnosis
+- **Patient Management:** View patient details, histories, and diagnoses.
+- **Consultation Scheduling:** Schedule and manage appointments efficiently.
+- **Dashboard:** A personalized dashboard to monitor tasks, appointments, and feedback.
 
-![App Screenshot](https://github.com/SutharMahendra/FCC-HTML-CSS/blob/main/imges/2.jpg?raw=true)
+### 3. Pathology-Centric Features:
 
-### Diagnosis Report
+- **Test Management:** Manage and track pathology tests ordered by users.
+- **Result Uploading:** Upload test results directly to the platform for user access.
 
-![App Screenshot](https://github.com/SutharMahendra/FCC-HTML-CSS/blob/main/imges/4.jpg?raw=true)
+### 4. AI/ML Models:
 
-## Features
+- **Illness Diagnosis Model:** Predict illnesses with high accuracy.
+- **Chatbot Models:** Perform OCR on pathological reports and use NLP for report analysis.
 
-1. **Intuitive Patient Data Input**
+### 5. Shared Features:
 
-   - User-friendly interface for patients to securely input comprehensive health information.
-   - Fields for medical history, current symptoms, medications, and more.
+- **Secure Authentication:** Role-based authentication for users, doctors, and pathology teams.
+- **Multi-Interface Design:** Separate, intuitive interfaces for users, doctors, and pathology teams.
+- **Data Security:** Robust security measures to protect user data.
 
-2. **GPT-Powered Analysis**
+## Repository Structure
 
-   - Integration of GPT technology for advanced analysis of patient data.
-   - Automated insights, potential diagnoses, and treatment suggestions for healthcare professionals.
+The project follows a modular structure:
 
-3. **Secret Key Integration**
+```
+medical-platform/
+├── backend/
+├── frontend/
+├── ml_models/
+├── docs/
+├── scripts/
+└── README.md
+```
 
-   - Mechanism for doctors to integrate the GPT-powered analysis API using a secure secret key.
-   - Authorization process to ensure only authorized medical professionals access advanced features.
+### Backend
 
-4. **Web Application Technology Stack**
-   - **Frontend:** React.js or Angular for a responsive and dynamic user interface.
-   - **Backend:** Node.js (Express.js) for robust server-side logic.
-   - **Database:** MongoDB for efficient data storage.
-   - **GPT API Integration:** Utilizes the GPT API for advanced analysis of patient data, providing automated insights, potential diagnoses, and treatment suggestions. This integration enhances the system's capabilities for personalized and efficient healthcare management.
+The backend handles API requests, authentication, and database interactions. It is built using **Python** and frameworks like **FastAPI**.
+
+### Frontend
+
+The frontend is developed using **React.js** and **MUI** to provide user-friendly and responsive interfaces.
+
+### ML Models
+
+AI/ML models are used for illness diagnosis and chatbot functionalities, including OCR and NLP tasks.
+
+### Documentation
+
+Detailed API documentation, database schemas, and system architecture diagrams are included.
+
+### Scripts
+
+Deployment and monitoring scripts to facilitate Docker/Kubernetes deployments and system health checks.
+
+## Prerequisites
+
+- **Backend:** Python 3.9+, FastAPI, PostgreSQL
+- **Frontend:** Node.js, React.js, MUI
+- **ML Models:** TensorFlow/PyTorch, Tesseract
+- **Deployment:** Docker, Kubernetes
 
 ## Installation
 
-### Server Folder
+### Clone the Repository
 
-1. **GenAI Module Installation**
-   - Navigate to the server folder.
-     ```bash
-     cd server
-     ```
-   - Install server module packages by running:
-     ```bash
-     npm install
-     ```
-   - Start server module packages by running:
-     ```bash
-     npm start
-     ```
+```bash
+git clone https://github.com/Chetan559/medical-ally.git
+cd medical-ally
+```
 
-### Backend Folder
+### Backend Setup
 
-2. **Backend Setup**
-   - Open a new terminal.
-   - Navigate to the backend folder.
-     ```bash
-     cd backend
-     ```
-   - Install server module packages by running:
-     ```bash
-     npm install
-     ```
-   - Start server module packages by running:
-     ```bash
-     npm start
-     ```
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Run the server:
+   ```bash
+   uvicorn main:app --reload
+   ```
 
-### Root Folder
+### Frontend Setup
 
-3. **Frontend Setup**
-   - Open a new terminal.
-   - Install frontend dependencies by running:
-     ```bash
-     npm install
-     npm start
-     ```
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend/user
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-### Server Configuration
+### ML Models Setup
 
-- The server operates on local port 5000 (http://localhost:5000).
-- Frontend is accessible at http://localhost:3000.
+1. Navigate to the `ml_models` directory.
+2. Install required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-## Technology Stack
+## Usage
 
-- **Frontend:** Developed with React or Angular, accessible at http://localhost:3000.
-- **Backend:** Node.js (Express.js) for server-side logic and communication with MongoDB.
-- **AI Module:** The GenAI module within the server folder suggests the presence of an AI-based component, likely integrated for suggesting diseases.
+- Access the user interface via the frontend URL.
+- Use the API endpoints for backend functionality.
+- Explore AI/ML capabilities for diagnosis and chatbot assistance.
 
-## Contributers:
+## Contributing
 
-> - Chetan Sharma
-> - Sudhanshu Shekhar
-> - Mahendra Suthar
-> - Sneha Vaghela
+Contributions are welcome! Please follow these steps:
 
-## :handshake: Contact
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Added feature-name"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a pull request.
 
-Chetan Sharma - - cschetan559@gmail.com
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+Special thanks to the team behind Medical-Ally for their dedication and effort in building this platform.
