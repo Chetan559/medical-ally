@@ -22,6 +22,10 @@ function Header() {
     navigate("/");
   };
 
+  const handleRegistrationClickAdmin = () => {
+    navigate("/Admin");
+  };
+
   const handleRegistrationClickPathology = () => {
     navigate("/Pathology");
   };
@@ -80,6 +84,13 @@ function Header() {
         onClick={handleRegistrationClickDoctor}
       >
         <FontAwesomeIcon icon={faArrowRightToBracket} /> Doctor
+      </button>
+      <button
+        className="text-appointment-btn"
+        type="button"
+        onClick={handleRegistrationClickAdmin}
+      >
+        <FontAwesomeIcon icon={faArrowRightToBracket} /> Admin
       </button>
 
       <button

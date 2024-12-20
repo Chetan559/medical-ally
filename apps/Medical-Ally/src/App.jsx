@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/User/Home/Home";
 import Pathology from "./Pages/Pathology/Pathology";
+import Admin from "./Pages/Admin/Admin";
 
 // import Legal from "./Pages/Legal";
 // import NotFound from "./Pages/NotFound";
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Pathology" element={<Pathology />} />
+          <Route path="/Admin" element={<Admin />} />
         </Routes>
       </Router>
     </div>
