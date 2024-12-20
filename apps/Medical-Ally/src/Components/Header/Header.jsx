@@ -18,8 +18,12 @@ function Header() {
     setNav(!nav);
   };
 
-  const handleRegistrationClick = () => {
+  const handleRegistrationClickDoctor = () => {
     navigate("/");
+  };
+
+  const handleRegistrationClickPathology = () => {
+    navigate("/Pathology");
   };
 
   const handleChatBtnClick = () => {
@@ -73,9 +77,17 @@ function Header() {
       <button
         className="text-appointment-btn"
         type="button"
-        onClick={handleRegistrationClick}
+        onClick={handleRegistrationClickDoctor}
       >
         <FontAwesomeIcon icon={faArrowRightToBracket} /> Doctor
+      </button>
+
+      <button
+        className="text-appointment-btn"
+        type="button"
+        onClick={handleRegistrationClickPathology}
+      >
+        <FontAwesomeIcon icon={faArrowRightToBracket} /> Pathology
       </button>
 
       {/* Mobile */}
