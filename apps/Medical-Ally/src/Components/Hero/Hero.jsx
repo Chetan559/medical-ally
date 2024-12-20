@@ -7,10 +7,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import "./Hero.css";
+import { toast } from "react-toastify";
 
 function Hero() {
   const navigate = useNavigate();
   const [goUp, setGoUp] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -19,6 +21,16 @@ function Hero() {
   const handleBookAppointmentClick = () => {
     navigate("/");
     // navigate("/appointment");
+  };
+
+  const handleAnalyseBtnClick = () => {
+    if (!isButtonDisabled) {
+      toast.info("Experiencing high traffic, Please wait a moment.", {
+        position: toast.POSITION.TOP_CENTER,
+        onOpen: () => setIsButtonDisabled(true),
+        onClose: () => setIsButtonDisabled(false),
+      });
+    }
   };
 
   useEffect(() => {
@@ -51,7 +63,7 @@ function Hero() {
           <button
             className="text-appointment-btn"
             type="button"
-            onClick={handleBookAppointmentClick}
+            onClick={handleAnalyseBtnClick}
           >
             <FontAwesomeIcon icon={faMagnifyingGlassChart} /> Analyse
           </button>

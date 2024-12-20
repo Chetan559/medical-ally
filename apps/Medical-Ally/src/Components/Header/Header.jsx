@@ -26,7 +26,7 @@ function Header() {
     navigate("/Pathology");
   };
 
-  const handleChatBtnClick = () => {
+  const handleAnalyseBtnClick = () => {
     if (!isButtonDisabled) {
       toast.info("Experiencing high traffic, Please wait a moment.", {
         position: toast.POSITION.TOP_CENTER,
@@ -40,7 +40,7 @@ function Header() {
     <div className="navbar-section">
       <h1 className="navbar-title">
         <Link to="/">
-          Health-<span className="navbar-sign">App</span>
+          Medical-<span className="navbar-sign">Ally</span>
         </Link>
       </h1>
 

@@ -9,11 +9,10 @@ function Footer() {
         <div className="ft-info">
           <div className="ft-info-p1">
             <p className="ft-title">
-              Health-<span className="ft-sign">App</span>
+              Medical-<span className="ft-sign">Ally</span>
             </p>
             <p className="ft-description">
-              Stay connected with us for the latest updates and health tips.
-              Your well-being is our priority – trust Health App for
+              Your well-being is our priority – trust Medical-Ally for
               personalized healthcare solutions tailored just for you.
             </p>
           </div>
@@ -62,11 +61,11 @@ function Footer() {
           <p className="ft-list-title">Talk To Us</p>
           <ul className="ft-list-items">
             <li>
-              <a href="mailto:support@healthapp.com">support@healthapp.com</a>
+              <a href="mailto:support@healthapp.com">support@medicalally.com</a>
             </li>
             <li>
               <a href="mailto:appointment@healthapp.com">
-                appointment@healthapp.com
+                appointment@medicalally.com
               </a>
             </li>
             <li>
@@ -80,7 +79,7 @@ function Footer() {
       </div>
 
       <div className="ft-copyright">
-        <p>© 2024 Health-App. All rights reserved.</p>
+        <p>© 2024 Medical-Ally. All rights reserved.</p>
       </div>
     </div>
   );
