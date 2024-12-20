@@ -1,8 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .footer-section {
   background-color: #1b2433;
-  width: 100vw;
+  width: 100%;
 }
 .footer-container {
+  /* padding: 24px 8px; */
   padding: 30px;
   display: flex;
   flex-wrap: wrap;
@@ -148,6 +155,7 @@
 /* Responsive */
 @media screen and (max-width: 700px) {
   .footer-container {
+    width: 100%;
     padding: 24px;
   }
   .ft-description {

@@ -49,7 +49,7 @@ function Hero() {
   }, []);
 
   return (
-    <div className="section-container">
+    <div className="section-container" id="home">
       <div className="hero-section">
         <div className="text-section">
           <p className="text-headline">❤️ Hospital at Home</p>
