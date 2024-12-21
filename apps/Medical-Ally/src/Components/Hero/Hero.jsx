@@ -18,19 +18,8 @@ function Hero() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleBookAppointmentClick = () => {
-    navigate("/");
-    // navigate("/appointment");
-  };
-
   const handleAnalyseBtnClick = () => {
-    if (!isButtonDisabled) {
-      toast.info("Experiencing high traffic, Please wait a moment.", {
-        position: toast.POSITION.TOP_CENTER,
-        onOpen: () => setIsButtonDisabled(true),
-        onClose: () => setIsButtonDisabled(false),
-      });
-    }
+    navigate("/analyse");
   };
 
   useEffect(() => {
