@@ -1,0 +1,54 @@
+Section 1: Personal Information
+Full Name
+Email Address
+Phone Number
+Date of Birth (to calculate age automatically)
+Gender
+Weight (in kg or lbs)
+Height (in cm or ft/in)
+Blood Group
+Emergency Contact Details (name, relation, phone number)
+Address (optional, if needed for physical appointments or medicine delivery)
+
+name: "",
+    email: "",
+    phone: "",
+    dob:"",
+    gender:"",
+    weight:"",
+    height:"",
+    bloodGroup:"",
+    emergencyContact:"",
+    address: "",
+
+
+Section 2: Current Symptoms
+Primary Symptoms (list or input the main symptoms)
+Duration of Symptoms (how long they have been present)
+Severity of Symptoms (mild, moderate, severe - with a scale or dropdown)
+Pulse Rate (in beats per minute)
+Body Temperature (in °C or °F)
+Blood Pressure (if known)
+How the Patient Feels (open text field for subjective input like tiredness, dizziness, etc.)
+Appetite (normal, reduced, increased)
+Sleep Patterns (normal, disturbed, insomnia, etc.)
+Hydration Status (sufficient, insufficient, dehydrated)
+Other Observations (e.g., skin rashes, swelling, etc.)
+
+
+
+Section 3: Medical History and Available Reports
+Current Medications (list of medicines, dosages, and duration)
+Existing Diagnosed Conditions (e.g., diabetes, hypertension, asthma)
+Past Medical History (e.g., surgeries, hospitalizations, chronic illnesses)
+Family Medical History (e.g., history of hereditary diseases like heart disease, diabetes, etc.)
+Known Allergies (e.g., medication, food, environmental)
+Lifestyle Factors:
+Smoking (yes/no; frequency)
+Alcohol consumption (yes/no; frequency)
+Exercise habits (sedentary, active, etc.)
+Vaccination History (e.g., COVID-19, tetanus, flu shots)
+Available Reports (upload section for diagnostic reports like blood tests, X-rays, etc.)
+Current Health Devices in Use (e.g., pacemaker, glucose monitor, etc.)
+Dietary Habits (vegetarian, non-vegetarian, vegan, etc.)
+Stress Level (low, moderate, high – optionally with a description)
