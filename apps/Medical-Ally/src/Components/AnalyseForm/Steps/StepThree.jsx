@@ -1,5 +1,20 @@
 import React from "react";
-import { TextField, Grid, Typography } from "@mui/material";
+import {
+  TextField,
+  Grid,
+  Typography,
+  MenuItem,
+  Paper,
+  Box,
+} from "@mui/material";
+import {
+  smokingHabits,
+  alcoholConsumption,
+  exerciseHabits,
+  stressLevels,
+  vaccinationHistory,
+  dietaryHabits,
+} from "../Values";
 
 const StepThree = ({ formData, setFormData }) => {
   const handleChange = (e) => {
@@ -7,202 +22,223 @@ const StepThree = ({ formData, setFormData }) => {
   };
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Typography variant="h4" gutterBottom>
-          Step 3: Medical History and Available Reports
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Current Medications (e.g., medicines, dosages, duration)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          multiline
-          rows={4}
-          value={formData.currentMedication}
-          onChange={(e) =>
-            setFormData({ ...formData, currentMedication: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Existing Diagnosed Conditions (e.g., diabetes, hypertension)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          multiline
-          rows={3}
-          value={formData.existingDiagnosedCondition}
-          onChange={(e) =>
-            setFormData({
-              ...formData,
-              existingDiagnosedCondition: e.target.value,
-            })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Past Medical History (e.g., surgeries, chronic illnesses)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          multiline
-          rows={3}
-          value={formData.pastMedicalHistory}
-          onChange={(e) =>
-            setFormData({ ...formData, pastMedicalHistory: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Family Medical History (e.g., hereditary diseases)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          multiline
-          rows={3}
-          value={formData.familyMedicalHistory}
-          onChange={(e) =>
-            setFormData({ ...formData, familyMedicalHistory: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Known Allergies (e.g., medication, food, environmental)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          multiline
-          rows={2}
-          value={formData.allergies}
-          onChange={(e) =>
-            setFormData({ ...formData, allergies: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <Typography variant="body1" sx={{ mt: 2 }}>
-          Lifestyle Factors
-        </Typography>
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Smoking (e.g., yes/no; frequency)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          value={formData.smoking}
-          onChange={(e) =>
-            setFormData({ ...formData, smoking: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Alcohol Consumption (e.g., yes/no; frequency)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          value={formData.alcoholConsumption}
-          onChange={(e) =>
-            setFormData({ ...formData, alcoholConsumption: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Exercise Habits (e.g., sedentary, active)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          value={formData.exerciseHabit}
-          onChange={(e) =>
-            setFormData({ ...formData, exerciseHabit: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Vaccination History (e.g., COVID-19, tetanus)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          value={formData.vaccinationHistory}
-          onChange={(e) =>
-            setFormData({ ...formData, vaccinationHistory: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Available Reports (e.g., diagnostic reports)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          value={formData.availableReports}
-          onChange={(e) =>
-            setFormData({ ...formData, availableReports: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Current Health Devices in Use (e.g., glucose monitor)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          value={formData.currentHealthDevice}
-          onChange={(e) =>
-            setFormData({ ...formData, currentHealthDevice: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Dietary Habits (e.g., vegetarian, vegan)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          value={formData.dietaryHabit}
-          onChange={(e) =>
-            setFormData({ ...formData, dietaryHabit: e.target.value })
-          }
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          label="Stress Level (low, moderate, high – description optional)"
-          variant="outlined"
-          margin="normal"
-          fullWidth
-          sx={{ m: 1 }}
-          multiline
-          rows={2}
-          value={formData.stressLevel}
-          onChange={(e) =>
-            setFormData({ ...formData, stressLevel: e.target.value })
-          }
-        />
-      </Grid>
-    </Grid>
+    <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
+      <Typography variant="h5" gutterBottom>
+        Step 3: Medical History and Available Reports
+      </Typography>
+      <Box mt={2}>
+        <Grid container spacing={3}>
+          {/* Medical History Section */}
+          <Grid item xs={12}>
+            <TextField
+              label="Current Medications (e.g., medicines, dosages, duration)"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={4}
+              value={formData.currentMedication}
+              onChange={handleChange}
+              name="currentMedication"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Existing Diagnosed Conditions (e.g., diabetes, hypertension)"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={3}
+              value={formData.existingDiagnosedCondition}
+              onChange={handleChange}
+              name="existingDiagnosedCondition"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Past Medical History (e.g., surgeries, chronic illnesses)"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={3}
+              value={formData.pastMedicalHistory}
+              onChange={handleChange}
+              name="pastMedicalHistory"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Family Medical History (e.g., hereditary diseases)"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={3}
+              value={formData.familyMedicalHistory}
+              onChange={handleChange}
+              name="familyMedicalHistory"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Known Allergies (e.g., medication, food, environmental)"
+              variant="outlined"
+              fullWidth
+              multiline
+              rows={2}
+              value={formData.allergies}
+              onChange={handleChange}
+              name="allergies"
+            />
+          </Grid>
+
+          {/* Lifestyle Factors Section */}
+          <Grid item xs={12}>
+            <Typography variant="h6" gutterBottom>
+              Lifestyle Factors
+            </Typography>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              select
+              label="Smoking"
+              variant="outlined"
+              fullWidth
+              value={formData.smoking}
+              onChange={handleChange}
+              name="smoking"
+              helperText="Select your smoking habit"
+            >
+              {smokingHabits.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              select
+              label="Alcohol Consumption"
+              variant="outlined"
+              fullWidth
+              value={formData.alcoholConsumption}
+              onChange={handleChange}
+              name="alcoholConsumption"
+              helperText="Select your alcohol consumption habit"
+            >
+              {alcoholConsumption.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              select
+              label="Exercise Habits"
+              variant="outlined"
+              fullWidth
+              value={formData.exerciseHabit}
+              onChange={handleChange}
+              name="exerciseHabit"
+              helperText="Select your exercise habit"
+            >
+              {exerciseHabits.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              select
+              label="Stress Level"
+              variant="outlined"
+              fullWidth
+              value={formData.stressLevel}
+              onChange={handleChange}
+              name="stressLevel"
+              helperText="Select your stress level"
+            >
+              {stressLevels.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              select
+              label="Vaccination History"
+              variant="outlined"
+              fullWidth
+              value={formData.vaccinationHistory}
+              onChange={handleChange}
+              name="vaccinationHistory"
+              helperText="Select your vaccination history"
+            >
+              {vaccinationHistory.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              select
+              label="Dietary Habits"
+              variant="outlined"
+              fullWidth
+              value={formData.dietaryHabit}
+              onChange={handleChange}
+              name="dietaryHabit"
+              helperText="Select your dietary habits"
+            >
+              {dietaryHabits.map((option) => (
+                <MenuItem key={option.value} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Available Reports (e.g., diagnostic reports)"
+              variant="outlined"
+              fullWidth
+              value={formData.availableReports}
+              onChange={handleChange}
+              name="availableReports"
+            />
+          </Grid>
+
+          <Grid item xs={12} sm={6}>
+            <TextField
+              label="Current Health Devices in Use (e.g., glucose monitor)"
+              variant="outlined"
+              fullWidth
+              value={formData.currentHealthDevice}
+              onChange={handleChange}
+              name="currentHealthDevice"
+            />
+          </Grid>
+        </Grid>
+      </Box>
+    </Paper>
   );
 };
 
