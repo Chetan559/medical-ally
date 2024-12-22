@@ -51,3 +51,16 @@ export const blood = [
     label: "B-",
   },
 ];
+
+export const marks = [
+  { value: 0, label: "Mild" },
+  { value: 50, label: "Moderate" },
+  { value: 100, label: "Severe" },
+];
+
+export const valuetext = (value) => {
+  if (value === 0) return "Mild";
+  if (value === 50) return "Moderate";
+  if (value === 100) return "Severe";
+  return "";
+};
