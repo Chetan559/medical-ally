@@ -1,0 +1,170 @@
+import React from "react";
+import {
+  Box,
+  Grid,
+  Typography,
+  TextField,
+  Slider,
+  Select,
+  MenuItem,
+  InputLabel,
+  FormControl,
+  Button,
+  Paper,
+} from "@mui/material";
+import {
+  marks,
+  valuetext,
+  durationOfSymptoms,
+  appetiteLevels,
+  sleepPatterns,
+  hydrationStatuses,
+} from "../Values.jsx";
+
+const StepTwo = () => {
+  return (
+    <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
+      <Typography variant="h5" gutterBottom>
+        Step 2: Current Symptoms
+      </Typography>
+      <Box mt={2}>
+        <Grid container spacing={3}>
+          {/* Primary Symptoms */}
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              fullWidth
+              label="Primary Symptoms"
+              variant="outlined"
+              required
+            />
+          </Grid>
+
+          {/* Severity of Symptoms */}
+          <Grid item xs={12} sm={6} md={4}>
+            <Typography gutterBottom>Severity of Symptoms</Typography>
+            <Slider
+              defaultValue={0}
+              aria-labelledby="severity-slider"
+              step={50}
+              marks={marks}
+              min={0}
+              max={100}
+              valueLabelDisplay="off"
+            />
+          </Grid>
+
+          {/* Duration of Symptoms */}
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              fullWidth
+              label="Duration of Symptoms"
+              variant="outlined"
+            />
+          </Grid>
+
+          {/* Pulse Rate */}
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              fullWidth
+              label="Pulse Rate (bpm)"
+              variant="outlined"
+              required
+            />
+          </Grid>
+
+          {/* Body Temperature */}
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              fullWidth
+              label="Body Temperature (°C)"
+              variant="outlined"
+              required
+            />
+          </Grid>
+
+          {/* Blood Pressure */}
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              fullWidth
+              label="Blood Pressure (e.g., 120/80)"
+              variant="outlined"
+            />
+          </Grid>
+
+          {/* Sugar Level */}
+          <Grid item xs={12} sm={6} md={4}>
+            <TextField
+              fullWidth
+              label="Sugar Level (mg/dL)"
+              variant="outlined"
+            />
+          </Grid>
+
+          {/* Appetite Level */}
+          <Grid item xs={12} sm={6} md={4}>
+            <FormControl fullWidth>
+              <InputLabel>Appetite Level</InputLabel>
+              <Select>
+                <MenuItem value="low">Low</MenuItem>
+                <MenuItem value="normal">Normal</MenuItem>
+                <MenuItem value="high">High</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+
+          {/* Sleep Patterns */}
+          <Grid item xs={12} sm={6} md={4}>
+            <FormControl fullWidth>
+              <InputLabel>Sleep Patterns</InputLabel>
+              <Select>
+                <MenuItem value="regular">Regular</MenuItem>
+                <MenuItem value="irregular">Irregular</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+
+          {/* Hydration Status */}
+          <Grid item xs={12} sm={6} md={4}>
+            <FormControl fullWidth>
+              <InputLabel>Hydration Status</InputLabel>
+              <Select>
+                <MenuItem value="dehydrated">Dehydrated</MenuItem>
+                <MenuItem value="normal">Normal</MenuItem>
+                <MenuItem value="overhydrated">Overhydrated</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+
+          {/* How the patient feels */}
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              label="How the patient feels (e.g., fatigued, dizzy)"
+              variant="outlined"
+              multiline
+              rows={3}
+            />
+          </Grid>
+
+          {/* Other Observations */}
+          <Grid item xs={12}>
+            <TextField
+              fullWidth
+              label="Other Observations"
+              variant="outlined"
+              multiline
+              rows={3}
+            />
+          </Grid>
+        </Grid>
+      </Box>
+      <Box mt={4} textAlign="right">
+        <Button variant="contained" color="primary" size="large">
+          Next
+        </Button>
+      </Box>
+    </Paper>
+  );
+};
+
+export default StepTwo;

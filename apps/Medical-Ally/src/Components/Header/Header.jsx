@@ -6,8 +6,9 @@ import {
   faArrowRightToBracket,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { Link } from "react-scroll";
 
 function Header() {
   const navigate = useNavigate();
@@ -20,6 +21,10 @@ function Header() {
 
   const handleRegistrationClickDoctor = () => {
     navigate("/Doctor");
+  };
+
+  const handleRegistrationClickAdmin = () => {
+    navigate("/Admin");
   };
 
   const handleRegistrationClickPathology = () => {
@@ -47,27 +52,47 @@ function Header() {
       {/* Desktop */}
       <ul className="navbar-items">
         <li>
-          <Link to="/" className="navbar-links">
+          <Link to="home" smooth={true} duration={500} className="navbar-links">
             Home
           </Link>
         </li>
         <li>
-          <Link to="/" className="navbar-links">
+          <Link
+            to="services"
+            smooth={true}
+            duration={500}
+            className="navbar-links"
+          >
             Services
           </Link>
         </li>
         <li>
-          <Link to="/" className="navbar-links">
+          <Link
+            to="about"
+            smooth={true}
+            duration={500}
+            className="navbar-links"
+          >
             About
           </Link>
         </li>
         <li>
-          <Link to="/" className="navbar-links">
+          <Link
+            to="reviews"
+            smooth={true}
+            duration={500}
+            className="navbar-links"
+          >
             Reviews
           </Link>
         </li>
         <li>
-          <Link to="/" className="navbar-links">
+          <Link
+            to="doctors"
+            smooth={true}
+            duration={500}
+            className="navbar-links"
+          >
             Doctors
           </Link>
         </li>
@@ -80,6 +105,13 @@ function Header() {
         onClick={handleRegistrationClickDoctor}
       >
         <FontAwesomeIcon icon={faArrowRightToBracket} /> Doctor
+      </button>
+      <button
+        className="text-appointment-btn"
+        type="button"
+        onClick={handleRegistrationClickAdmin}
+      >
+        <FontAwesomeIcon icon={faArrowRightToBracket} /> Admin
       </button>
 
       <button
@@ -96,7 +128,63 @@ function Header() {
           <FontAwesomeIcon icon={faXmark} className="hamb-icon" />
         </div>
 
-        <ul className="mobile-navbar-links">{/* Mobile navbar items */}</ul>
+        <ul className="mobile-navbar-links">
+          <li>
+            <Link
+              to="home"
+              smooth={true}
+              duration={500}
+              className="mobile-navbar-item"
+              onClick={openNav} // Close the menu on click
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="services"
+              smooth={true}
+              duration={500}
+              className="mobile-navbar-item"
+              onClick={openNav}
+            >
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              className="mobile-navbar-item"
+              onClick={openNav}
+            >
+              About
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="reviews"
+              smooth={true}
+              duration={500}
+              className="mobile-navbar-item"
+              onClick={openNav}
+            >
+              Reviews
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="doctors"
+              smooth={true}
+              duration={500}
+              className="mobile-navbar-item"
+              onClick={openNav}
+            >
+              Doctors
+            </Link>
+          </li>
+        </ul>
       </div>
 
       {/* Hamburger Icon */}
