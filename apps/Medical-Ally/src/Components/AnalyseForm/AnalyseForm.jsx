@@ -4,6 +4,7 @@ import StepOne from "./Steps/StepOne.jsx";
 import StepTwo from "./Steps/StepTwo.jsx";
 import StepThree from "./Steps/StepThree.jsx";
 import StepFour from "./Steps/StepFour.jsx";
+import { buttonStyle } from "./Values.jsx";
 import { Button, Container, Typography } from "@mui/material";
 
 const AnalyseForm = () => {
@@ -104,7 +105,7 @@ const AnalyseForm = () => {
       <MultiStep
         steps={steps}
         prevButton={
-          <Button variant="contained" color="secondary">
+          <Button variant="contained" color="secondary" sx={buttonStyle}>
             Previous
           </Button>
         }
@@ -112,6 +113,7 @@ const AnalyseForm = () => {
           <Button
             variant="contained"
             color="primary"
+            sx={buttonStyle}
             onClick={() => {
               const currentStepIndex = steps.findIndex(
                 (step) =>
@@ -126,6 +128,7 @@ const AnalyseForm = () => {
         finishButton={
           <Button
             variant="contained"
+            sx={buttonStyle}
             color="success"
             onClick={() => {
               if (validateStep(steps.length - 1)) {
