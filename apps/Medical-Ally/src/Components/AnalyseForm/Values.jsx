@@ -191,3 +191,15 @@ export const dietaryHabits = [
   { value: "Non-Vegetarian", label: "Non-Vegetarian" },
   { value: "Other", label: "Other" },
 ];
+
+export const buttonStyle = {
+  backgroundColor: "#007bff",
+  color: "#fff",
+  textTransform: "none",
+  borderRadius: "20px",
+  fontSize: "14px",
+  padding: "6px 20px",
+  "&:hover": {
+    backgroundColor: "#0056b3",
+  },
+};
