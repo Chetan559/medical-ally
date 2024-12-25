@@ -1,10 +1,13 @@
 import React from "react";
+import PHero from "../../Components/P_hero/p_hero";
+
+
 
 function Pathology() {
   return (
     <div>
-      <h1> This is pathology page</h1>
-      <h5>Do not commit anything on any other branch</h5>
+      <PHero />
+
     </div>
   );
 }
