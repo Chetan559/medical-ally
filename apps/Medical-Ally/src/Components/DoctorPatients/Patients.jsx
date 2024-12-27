@@ -1,5 +1,4 @@
 import React from "react";
-import PrimarySymptoms from "./PrimarySymptoms/PrimarySymptoms";
 import Tabs from "./Tabs/Tabs";
 import Sidebar from "./PatientSidebar/Sidebar";
 

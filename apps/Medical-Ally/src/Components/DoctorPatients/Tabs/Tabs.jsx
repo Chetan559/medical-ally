@@ -53,10 +53,10 @@ function Tabs() {
           <PrimarySymptoms />
         </TETabsPane>
         <TETabsPane show={buttonActive === "tab2"}>
-          <History />
+          <Habits />
         </TETabsPane>
         <TETabsPane show={buttonActive === "tab3"}>
-          <Habits />
+          <History />
         </TETabsPane>
       </TETabsContent>
     </div>
