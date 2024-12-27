@@ -7,16 +7,15 @@ function Doctors() {
   const [activeContent, setActiveContent] = useState("dashboard"); // State to manage active content
 
   return (
-    <div className="grid grid-cols-12">
+    <div className="grid ">
       {/* Sidebar Component */}
-      <div className="sm:col-span-2 bg-gray-100 dark:bg-gray-600">
-        {" "}
+      <div className=" bg-gray-100 dark:bg-gray-600">
         {/* Adjust the width */}
         <Sidebar onContentChange={setActiveContent} />
       </div>
 
       {/* Main Content */}
-      <div className="col-span-12 sm:col-span-10 bg-gray-100 dark:bg-gray-600 ">
+      <div className="sm:ml-[15.5rem] bg-gray-100 dark:bg-gray-600 ">
         <Maincontent content={activeContent} />
       </div>
     </div>
