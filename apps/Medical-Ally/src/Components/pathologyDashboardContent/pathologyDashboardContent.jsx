@@ -3,7 +3,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-const DashboardContent = () => {
+const pathologyDashboardContent = () => {
 
     const navigate = useNavigate();
 
@@ -83,4 +83,4 @@ const DashboardContent = () => {
     );
 };
 
-export default DashboardContent;
+export default pathologyDashboardContent;

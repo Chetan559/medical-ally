@@ -1,8 +1,8 @@
 import React from 'react';
-import '../P_hero/p_hero.css';
+import './p_hero.css';
 // import pathologyImage from '../image/pathology.jpg'; // Adjust path based on your folder structure
-import PNabar from '../../Components/PNavbar/PNavbar';
-import PHeader from '../PHeader/PHeader';
+import PNabar from '../PNavbar/PNavbar';
+import PHeader from '../pathologyHeader/PHeader';
 import DashboardContent from '../DashboardContent/DashboardContent';
 
 
