@@ -6,7 +6,7 @@ import Doctors from "./Pages/Doctors/Doctors";
 import Admin from "./Pages/Admin/Admin";
 import AnalyseForm from "./Components/AnalyseForm/AnalyseForm";
 import Patients from "./Components/DoctorPatients/Patients";
-import MedicineDashboard from "./Components/MedicineDashboard/MedicineDashboard";
+import MedicineDashboard from "./Components/pathologyMedicineDashboard/MedicineDashboard.jsx";
 
 // import Legal from "./Pages/Legal";
 // import NotFound from "./Pages/NotFound";

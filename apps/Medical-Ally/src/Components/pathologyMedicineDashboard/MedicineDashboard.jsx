@@ -1,7 +1,7 @@
 import React from 'react';
-import PNavbar from '../PNavbar/PNavbar';
-import PHeader from '../PHeader/PHeader';
-import MedicineList from '../medicineList/medicineList';
+import PNavbar from '../pathologyNavbar/pathologyNavbar';
+import PHeader from '../pathologyHeader/pathologyHeader';
+import MedicineList from '../pathologyMedicineList/medicineList';
 
 function MedicineDashboard() {
     return (
