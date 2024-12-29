@@ -6,6 +6,7 @@ import Doctors from "./Pages/Doctors/Doctors";
 import Admin from "./Pages/Admin/Admin";
 import AnalyseForm from "./Components/AnalyseForm/AnalyseForm";
 import Patients from "./Components/DoctorPatients/Patients";
+import MedicineDashboard from "./Components/pathologyMedicineDashboard/MedicineDashboard.jsx";
 
 // import Legal from "./Pages/Legal";
 // import NotFound from "./Pages/NotFound";
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Admin" element={<Admin />} />
           <Route path="/analyse" element={<AnalyseForm />} />
           <Route path="/Doctor/patients" element={<Patients />} />
+          <Route path="/Pathology/list" element={<MedicineDashboard />} />
         </Routes>
       </Router>
     </div>
