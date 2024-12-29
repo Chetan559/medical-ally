@@ -2,7 +2,8 @@ import React from "react";
 import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/User/Home/Home";
 import Pathology from "./Pages/Pathology/Pathology";
-import MedicineDashboard from "./Components/MedicineDashboard/MedicineDashboard";
+import MedicineDashboard from './Components/pathologyMedicineDashboard/MedicineDashboard.jsx'
+
 
 // import Legal from "./Pages/Legal";
 // import NotFound from "./Pages/NotFound";

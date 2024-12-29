@@ -1,12 +1,17 @@
 import React from "react";
-import PHero from "../../Components/P_hero/p_hero";
+
+import PNabar from '../../Components/pathologyNavbar/pathologyNavbar';
+import PHeader from '../../Components/pathologyHeader/pathologyHeader';
+import DashboardContent from '../../Components/pathologyDashboardContent/pathologyDashboardContent';
 
 
 
 function Pathology() {
   return (
-    <div>
-      <PHero />
+    <div className="pathology-hero bg-slate-200">
+      <PNabar />
+      <PHeader />
+      <DashboardContent />
 
     </div>
   );
