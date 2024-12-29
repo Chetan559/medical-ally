@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import BloodPressure from "../../../../public/blood-pressure.svg";
 import BodyTemp from "../../../../public/body-temp.svg";
 import HeartBeat from "../../../../public/heart-beat-svgrepo-com.svg";
 import Glucose from "../../../../public/glucose.svg";
 
 function PrimarySymptoms() {
+  const { id } = useParams();
+  const resolvedId = id ?? 5;
+
   const [symptomsData, setSymptomsData] = useState({
     primarySymptoms: "",
     durationOfSymptoms: "",
@@ -22,7 +26,7 @@ function PrimarySymptoms() {
   useEffect(() => {
     // Fetch data from the API
     fetch(
-      "https://676be687bc36a202bb86197f.mockapi.io/api/appointments/symptomData/1"
+      `https://676be687bc36a202bb86197f.mockapi.io/api/appointments/symptomData/${resolvedId}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -41,7 +45,8 @@ function PrimarySymptoms() {
         });
       })
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  }, [resolvedId]);
+  console.log(symptomsData);
 
   return (
     <div className="p-4 border-2  grid object-contain border-gray-200 border-dashed rounded-lg text-gray-900 dark:text-white dark:border-gray-700 ">

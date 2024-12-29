@@ -1,11 +1,43 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import sharmaji from "../../Assets/Doctor/sharmaji.png";
+import { useSelector } from "react-redux";
 
 function Sidebar({ onContentChange }) {
+  const [userCount, setUserCount] = useState(null);
+
+  const selectedPatientId = useSelector(
+    (state) => state.patient.selectedPatientId
+  );
+  const resolvedId = selectedPatientId ?? 5; // Use default ID if not set
+
+  useEffect(() => {
+    fetch(
+      `https://676be687bc36a202bb86197f.mockapi.io/api/appointments/symptomData/${resolvedId}`
+    )
+      .then((response) => response.json())
+      .then((data) => setSymptomsData(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, [resolvedId]);
+
+  useEffect(() => {
+    // Replace this URL with your actual API endpoint
+    fetch("https://676be687bc36a202bb86197f.mockapi.io/api/appointments/users/")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setUserCount(data.length);
+      })
+      .catch((error) => console.error("Error fetching user count:", error));
+  }, []);
+
   const handleContentChange = (content) => {
-    onContentChange(content); // Notify parent about content change
+    onContentChange(content);
   };
+  console.log(userCount);
   return (
     <div>
       <aside
@@ -73,7 +105,7 @@ function Sidebar({ onContentChange }) {
 
                 <span className=" ml-3 whitespace-nowrap">Appointment</span>
                 <span className="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                  3
+                  {userCount || 10}
                 </span>
               </button>
             </li>

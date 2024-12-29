@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 function Habits() {
+  const { id } = useParams();
+  const resolvedId = id ?? 5;
+
   const [symptomsData, setSymptomsData] = useState({
     smoking: "",
     alcoholConsumption: "",
@@ -14,7 +18,7 @@ function Habits() {
   useEffect(() => {
     // Fetch data from the API
     fetch(
-      "https://676be687bc36a202bb86197f.mockapi.io/api/appointments/symptomData/1"
+      `https://676be687bc36a202bb86197f.mockapi.io/api/appointments/symptomData/${resolvedId}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -29,7 +33,7 @@ function Habits() {
         });
       })
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  }, [resolvedId]);
 
   return (
     <div className="p-4 border-2  grid object-contain border-gray-200 border-dashed rounded-lg text-gray-900 dark:text-white dark:border-gray-700 ">

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
 import Sidebar from "../../Components/DoctorSidebar/Sidebar";
 import Maincontent from "../../Components/TempDoc/maincontent";
 

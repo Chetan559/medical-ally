@@ -1,10 +1,11 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/User/Home/Home";
 import Pathology from "./Pages/Pathology/Pathology";
 import Doctors from "./Pages/Doctors/Doctors";
 import Admin from "./Pages/Admin/Admin";
 import AnalyseForm from "./Components/AnalyseForm/AnalyseForm";
+import Patients from "./Components/DoctorPatients/Patients";
 
 // import Legal from "./Pages/Legal";
 // import NotFound from "./Pages/NotFound";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Pathology" element={<Pathology />} />
           <Route path="/Admin" element={<Admin />} />
           <Route path="/analyse" element={<AnalyseForm />} />
+          <Route path="/Doctor/patients" element={<Patients />} />
         </Routes>
       </Router>
     </div>

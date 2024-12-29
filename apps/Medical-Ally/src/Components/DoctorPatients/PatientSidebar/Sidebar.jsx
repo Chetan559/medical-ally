@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Card from "./PatientCard/Card";
 import Summary from "./GptSummary/Summary";
 import Report from "./PatientReports/Report";
 
 function Sidebar() {
+  const { id } = useParams();
+  const resolvedId = id ?? 5;
   const [userData, setUserData] = useState({
     name: "",
     email: "",
@@ -22,7 +25,7 @@ function Sidebar() {
   useEffect(() => {
     // Fetch data from the API
     fetch(
-      "https://676be687bc36a202bb86197f.mockapi.io/api/appointments/users/5"
+      `https://676be687bc36a202bb86197f.mockapi.io/api/appointments/users/${resolvedId}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -42,7 +45,7 @@ function Sidebar() {
         });
       })
       .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+  }, [resolvedId]);
 
   return (
     <div className="overflow-auto ">

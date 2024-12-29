@@ -1,34 +1,32 @@
-import React, { useState } from "react";
-import appointments from "../apiValues/AppointmentApis";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setSelectedPatientId } from "../../redux/patientSlice";
 
 function Appointment() {
+  const [appointments, setAppointments] = useState([]);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchAppointments = async () => {
+      try {
+        const response = await axios.get(
+          "https://676be687bc36a202bb86197f.mockapi.io/api/appointments/users"
+        );
+        setAppointments(response.data);
+      } catch (error) {
+        console.error("Error fetching appointments:", error);
+      }
+    };
+    fetchAppointments();
+  }, []);
+
   const handleDelete = (id) => {
     setAppointments(
       appointments.filter((appointment) => appointment.id !== id)
     );
-  };
-
-  const handleEdit = (id) => {
-    const newName = prompt("Enter new name:");
-    const newEmail = prompt("Enter new email:");
-    const newStatus = prompt("Enter new status:");
-    const newDate = prompt("Enter new date (e.g., 1/1/2024):");
-
-    if (newName && newEmail && newStatus && newDate) {
-      setAppointments(
-        appointments.map((appointment) =>
-          appointment.id === id
-            ? {
-                ...appointment,
-                name: newName,
-                email: newEmail,
-                status: newStatus,
-                date: newDate,
-              }
-            : appointment
-        )
-      );
-    }
   };
 
   const handleAdd = () => {
@@ -47,6 +45,11 @@ function Appointment() {
       };
       setAppointments([...appointments, newAppointment]);
     }
+  };
+
+  const handleViewPatientCard = (id) => {
+    dispatch(setSelectedPatientId(id));
+    navigate("/Doctor/patients");
   };
 
   return (
@@ -77,7 +80,7 @@ function Appointment() {
                       <td className="px-4 py-2">
                         <span
                           className={`px-2 py-1 rounded-full text-sm font-medium ${
-                            appointment.status.toLowerCase() === "Approved"
+                            appointment.status.toLowerCase() === "approved"
                               ? "bg-green-100 text-green-600 dark:bg-green-700 dark:text-green-100"
                               : appointment.status.toLowerCase() === "pending"
                                 ? "bg-yellow-100 text-yellow-600 dark:bg-yellow-700 dark:text-yellow-100"
@@ -90,11 +93,11 @@ function Appointment() {
                       <td className="px-4 py-2">{appointment.date}</td>
                       <td className="px-4 py-2 text-center">
                         <button
-                          onClick={() => handleEdit(appointment.id)}
+                          onClick={() => handleViewPatientCard(appointment.id)}
                           className="text-blue-600 hover:text-blue-800 mx-1 dark:text-blue-400"
-                          aria-label="Edit"
+                          aria-label="View Patient Card"
                         >
-                          ✏️
+                          📝 View
                         </button>
                         <button
                           onClick={() => handleDelete(appointment.id)}

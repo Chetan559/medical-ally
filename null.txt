@@ -325,3 +325,46 @@
           </div>
         </div>
       </div>
+
+
+
+
+      name: "",
+    email: "",
+    phone: "",
+    dob: "",
+    gender: "",
+    weight: "",
+    height: "",
+    bloodGroup: "",
+    emergencyContact: "",
+    address: "",
+    city: "",
+    postalCode: "",
+    // section 2 : symptoms field
+    primarySymptoms: "",
+    durationOfSymptoms: "",
+    severityOfSymptoms: "",
+    pulseRate: "",
+    bodyTemp: "",
+    bloodPressure: "",
+    sugar: "",
+    patientsFeels: "",
+    appetite: "",
+    sleepPatterns: "",
+    hydrationStatus: "",
+    otherObservations: "",
+    // section 3 Medical history
+    currentMedication: "",
+    existingDiagnosedCondition: "",
+    pastMedicalHistory: "",
+    familyMedicalHistory: "",
+    allergies: "",
+    smoking: "",
+    alcoholConsumption: "",
+    exerciseHabit: "",
+    availableReports: "",
+    vaccinationHistory: "",
+    currentHealthDevice: "",
+    dietaryHabit: "",
+    stressLevel: "",
