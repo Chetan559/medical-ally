@@ -1,7 +1,11 @@
 import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Pages/User/Home/Home";
 import Pathology from "./Pages/Pathology/Pathology";
+import Doctors from "./Pages/Doctors/Doctors";
+import Admin from "./Pages/Admin/Admin";
+import AnalyseForm from "./Components/AnalyseForm/AnalyseForm";
+import Patients from "./Components/DoctorPatients/Patients";
 import MedicineDashboard from "./Components/MedicineDashboard/MedicineDashboard";
 
 // import Legal from "./Pages/Legal";
@@ -16,7 +20,11 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Doctor" element={<Doctors />} />
           <Route path="/Pathology" element={<Pathology />} />
+          <Route path="/Admin" element={<Admin />} />
+          <Route path="/analyse" element={<AnalyseForm />} />
+          <Route path="/Doctor/patients" element={<Patients />} />
           <Route path="/Pathology/list" element={<MedicineDashboard />} />
         </Routes>
       </Router>

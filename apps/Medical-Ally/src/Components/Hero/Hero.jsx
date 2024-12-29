@@ -18,19 +18,8 @@ function Hero() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleBookAppointmentClick = () => {
-    navigate("/");
-    // navigate("/appointment");
-  };
-
   const handleAnalyseBtnClick = () => {
-    if (!isButtonDisabled) {
-      toast.info("Experiencing high traffic, Please wait a moment.", {
-        position: toast.POSITION.TOP_CENTER,
-        onOpen: () => setIsButtonDisabled(true),
-        onClose: () => setIsButtonDisabled(false),
-      });
-    }
+    navigate("/analyse");
   };
 
   useEffect(() => {
@@ -49,7 +38,7 @@ function Hero() {
   }, []);
 
   return (
-    <div className="section-container">
+    <div className="section-container" id="home">
       <div className="hero-section">
         <div className="text-section">
           <p className="text-headline">❤️ Hospital at Home</p>
