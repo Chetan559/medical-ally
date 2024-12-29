@@ -20,7 +20,7 @@ function Header() {
   };
 
   const handleRegistrationClickDoctor = () => {
-    navigate("/");
+    navigate("/Doctor");
   };
 
   const handleRegistrationClickAdmin = () => {
