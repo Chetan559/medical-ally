@@ -11,7 +11,26 @@ const DashboardContent = () => {
         navigate('/Pathology/list')
     }
     const data = [
-        { name: 'John Doe', email: 'john@example.com', Disease: 'Headache', status: 'Active', role: 'Owner' },
+        { name: 'John Doe', email: 'john@example.com', disease: 'Headache', status: 'normal' },
+        { name: 'Jane Smith', email: 'jane.smith@example.com', disease: 'Fever', status: 'critical' },
+        { name: 'Michael Brown', email: 'michael.brown@example.com', disease: 'Cough', status: 'normal' },
+        { name: 'Emily Davis', email: 'emily.davis@example.com', disease: 'Flu', status: 'recovering' },
+        { name: 'Daniel Wilson', email: 'daniel.wilson@example.com', disease: 'Asthma', status: 'critical' },
+        { name: 'Sarah Johnson', email: 'sarah.johnson@example.com', disease: 'Diabetes', status: 'stable' },
+        { name: 'James White', email: 'james.white@example.com', disease: 'Hypertension', status: 'stable' },
+        { name: 'Olivia Miller', email: 'olivia.miller@example.com', disease: 'Allergy', status: 'normal' },
+        { name: 'Sophia Anderson', email: 'sophia.anderson@example.com', disease: 'Back Pain', status: 'recovering' },
+        { name: 'Liam Martinez', email: 'liam.martinez@example.com', disease: 'Migraine', status: 'critical' },
+        { name: 'Ava Garcia', email: 'ava.garcia@example.com', disease: 'Cold', status: 'normal' },
+        { name: 'Ethan Rodriguez', email: 'ethan.rodriguez@example.com', disease: 'Fracture', status: 'critical' },
+        { name: 'Mia Martinez', email: 'mia.martinez@example.com', disease: 'Heart Disease', status: 'stable' },
+        { name: 'Lucas Hernandez', email: 'lucas.hernandez@example.com', disease: 'Kidney Stone', status: 'recovering' },
+        { name: 'Charlotte Lee', email: 'charlotte.lee@example.com', disease: 'Pneumonia', status: 'critical' },
+        { name: 'Benjamin Clark', email: 'benjamin.clark@example.com', disease: 'Malaria', status: 'stable' },
+        { name: 'Amelia Hall', email: 'amelia.hall@example.com', disease: 'Sprain', status: 'normal' },
+        { name: 'Alexander Lewis', email: 'alexander.lewis@example.com', disease: 'Arthritis', status: 'stable' },
+        { name: 'Ella Young', email: 'ella.young@example.com', disease: 'Skin Rash', status: 'normal' },
+        { name: 'William Walker', email: 'william.walker@example.com', disease: 'Gastric', status: 'recovering' },
 
     ];
 
@@ -48,7 +67,7 @@ const DashboardContent = () => {
                         {data.map((user, idx) => (
                             <tr key={idx}>
                                 <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
+                                <td className='p-2'>{user.disease}</td>
                                 <td className='p-2 text-green-500'>{user.status}</td>
                                 <td
                                     className='p-2 text-blue-600 hover:text-blue-800'
@@ -57,152 +76,6 @@ const DashboardContent = () => {
                                 </td>
                             </tr>
                         ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-                        {data.map((user, idx) => (
-                            <tr key={idx}>
-                                <td className='p-2'>{user.name}</td>
-                                <td className='p-2'>{user.Disease}</td>
-                                <td className='p-2 text-green-500'>{user.status}</td>
-                                <td
-                                    className='p-2 text-blue-600 hover:text-blue-800'
-                                    onClick={handleMedicineList}>
-                                    Edit
-                                </td>
-                            </tr>
-                        ))}
-
-
                     </tbody>
                 </table>
             </div>
