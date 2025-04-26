@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Page Not Found</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: #f5f7fa;
+        text-align: center;
+        color: #333;
+        padding: 20px;
+      }
+
+      .container {
+        max-width: 600px;
+      }
+
+      h1 {
+        font-size: 6rem;
+        color: #ff4757;
+      }
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+
+      p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 24px;
+        background-color: #1e90ff;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>404</h1>
+      <h2>Oops! Page Not Found</h2>
+      <p>
+        We couldn’t find the page you were looking for. Redirecting you back to
+        the site...
+      </p>
+      <a href="/medical-ally" class="btn">Go Home Now</a>
+    </div>
+
+    <script>
+      // Redirect logic for GitHub Pages + React Router
+      const redirectPath =
+        "/medical-ally" + location.pathname + location.search + location.hash;
+      setTimeout(() => {
+        location.replace(redirectPath);
+      }, 2000); // wait 2 seconds before redirect
+    </script>
+  </body>
+</html>
